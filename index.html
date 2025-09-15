@@ -6,151 +6,464 @@
     <title>Mamadou Ndao - Bioinformaticien</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             color: #1f2937;
+            line-height: 1.6;
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+        
         .header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3b82f6 100%);
             color: #f9fafb;
-            padding: 4rem 2rem;
+            padding: 2rem 1rem;
             border-radius: 1rem;
             text-align: center;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+        
+        @media (min-width: 768px) {
+            .header {
+                padding: 4rem 2rem;
+            }
+        }
+        
         .header h1 {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
+        
+        @media (min-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+        }
+        
         .header p {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 400;
             opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
+        
+        @media (min-width: 768px) {
+            .header p {
+                font-size: 1.25rem;
+            }
+        }
+        
         .section-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #1f2937;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
             border-bottom: 3px solid #3b82f6;
             padding-bottom: 0.5rem;
+            position: relative;
         }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+                margin-top: 3rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            border-radius: 2px;
+        }
+        
         .card {
-            background-color: white;
-            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
             border-radius: 0.75rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
+        
+        @media (min-width: 768px) {
+            .card {
+                padding: 2rem;
+            }
+        }
+        
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(59, 130, 246, 0.3);
         }
+        
         .language-switcher {
             position: fixed;
             top: 1rem;
             right: 1rem;
-            z-index: 10;
+            z-index: 50;
+            display: flex;
+            gap: 0.5rem;
         }
+        
         .language-switcher button {
-            background-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.9);
+            backdrop-filter: blur(10px);
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.75rem;
             border-radius: 0.5rem;
             font-weight: 600;
-            transition: background-color 0.3s;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
+        
+        @media (min-width: 768px) {
+            .language-switcher button {
+                padding: 0.5rem 1rem;
+            }
+        }
+        
         .language-switcher button:hover {
-            background-color: #2563eb;
+            background: rgba(37, 99, 235, 0.9);
+            transform: translateY(-2px);
         }
+        
+        .language-switcher button.active {
+            background: rgba(37, 99, 235, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-info {
+                gap: 1.5rem;
+                font-size: 0.925rem;
+            }
+        }
+        
         .contact-info a {
-            color: #3b82f6;
-            transition: color 0.3s;
+            color: #e5e7eb;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
         }
+        
         .contact-info a:hover {
-            color: #1e40af;
+            color: #60a5fa;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
+        
         .navbar {
-            background-color: #1f2937;
+            background: rgba(31, 41, 55, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
-            z-index: 20;
-            padding: 1rem 2rem;
+            z-index: 40;
+            padding: 0.75rem 1rem;
             border-bottom-left-radius: 1rem;
             border-bottom-right-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+        
+        @media (min-width: 768px) {
+            .navbar {
+                padding: 1rem 2rem;
+            }
+        }
+        
         .navbar-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 0.75rem;
         }
+        
+        @media (min-width: 768px) {
+            .navbar-list {
+                gap: 1.5rem;
+            }
+        }
+        
         .navbar-item a {
             color: #d1d5db;
             font-weight: 600;
-            transition: color 0.3s;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
         }
+        
+        @media (min-width: 768px) {
+            .navbar-item a {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+        
         .navbar-item a:hover {
             color: #ffffff;
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .skill-item {
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .education-grid {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .education-grid {
+                gap: 1.5rem;
+            }
+        }
+        
+        .job-tasks {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        
+        .job-tasks li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        
+        .job-tasks li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #3b82f6;
+            font-size: 0.75rem;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+        }
+        
+        @media (max-width: 767px) {
+            .navbar-list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(31, 41, 55, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 1rem;
+                border-radius: 0 0 1rem 1rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            
+            .navbar-list.mobile-open {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: #d1d5db;
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-menu-toggle:hover {
+                background: rgba(59, 130, 246, 0.2);
+                color: #ffffff;
+            }
+            
+            .navbar {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .section {
+                margin-bottom: 3rem;
+            }
+        }
+
+        .publication-link {
+            word-break: break-all;
+        }
+
+        @media (max-width: 640px) {
+            .publication-link {
+                font-size: 0.875rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-100">
-
+<body>
     <div class="language-switcher">
-        <button id="lang-fr" class="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2 hover:bg-blue-600">Français</button>
-        <button id="lang-en" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">English</button>
+        <button id="lang-fr" class="active">FR</button>
+        <button id="lang-en">EN</button>
     </div>
 
     <nav class="navbar">
-        <ul class="navbar-list">
-            <li class="navbar-item"><a href="#profile-title" id="nav-profile">Profil</a></li>
-            <li class="navbar-item"><a href="#experience-title" id="nav-experience">Expériences</a></li>
-            <li class="navbar-item"><a href="#publications-title" id="nav-publications">Publications</a></li>
-            <li class="navbar-item"><a href="#skills-title" id="nav-skills">Compétences</a></li>
-            <li class="navbar-item"><a href="#education-title" id="nav-education">Formations</a></li>
-            <li class="navbar-item"><a href="#certifications-title" id="nav-certifications">Certifications</a></li>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            ☰
+        </button>
+        <ul class="navbar-list" id="navbar-list">
+            <li class="navbar-item"><a href="#profile" id="nav-profile">Profil</a></li>
+            <li class="navbar-item"><a href="#experience" id="nav-experience">Expériences</a></li>
+            <li class="navbar-item"><a href="#publications" id="nav-publications">Publications</a></li>
+            <li class="navbar-item"><a href="#skills" id="nav-skills">Compétences</a></li>
+            <li class="navbar-item"><a href="#education" id="nav-education">Formations</a></li>
+            <li class="navbar-item"><a href="#certifications" id="nav-certifications">Certifications</a></li>
         </ul>
     </nav>
 
-    <div class="container py-8">
+    <div class="container">
         <!-- Header Section -->
-        <header class="header">
+        <header class="header fade-in">
             <h1 id="name">Mamadou Ndao</h1>
             <p id="profile-headline">Bioinformaticien / Bioinformatics Scientist</p>
-            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm contact-info">
-                <a href="mailto:ndaom403@gmail.com" class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+            <div class="contact-info">
+                <a href="mailto:ndaom403@gmail.com" class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
                     <span>ndaom403@gmail.com</span>
                 </a>
-                <a href="https://linkedin.com/in/mamadou-ndao-6869741b1" target="_blank" class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.768s.784-1.767 1.75-1.767 1.75.79 1.75 1.767-.783 1.768-1.75 1.768zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="https://linkedin.com/in/mamadou-ndao-6869741b1" target="_blank" class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.768s.784-1.767 1.75-1.767 1.75.79 1.75 1.767-.783 1.768-1.75 1.768zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
                     <span>LinkedIn</span>
                 </a>
-                <span class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 100-4 0 2z" clip-rule="evenodd" /></svg>
+                <span class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 100-4 0 2z" clip-rule="evenodd" />
+                    </svg>
                     <span>Sénégal</span>
                 </span>
             </div>
         </header>
 
         <!-- Main Content -->
-        <main class="container mt-8">
-
+        <main class="mt-6">
             <!-- Professional Profile Section -->
-            <section id="profile">
+            <section id="profile" class="section fade-in">
                 <h2 class="section-title" id="profile-title">Profil Professionnel</h2>
-                <div class="card p-6">
+                <div class="card">
                     <p id="profile-text">
                         Bioinformaticien diplômé d'un Master en Bioinformatique-Biomathématique de l'Université Cheikh Anta Diop (UCAD), avec une solide expérience dans l'analyse génomique d'agents pathogènes humains et le traitement de données omiques (génomique, transcriptomique, métagénomique). Formé aux outils avancés de séquençage et d'analyse bioinformatique, je me spécialise dans l'identification de gènes de résistance, de virulence et de plasmides. Passionné par l'étude des bactéries multirésistantes, je suis engagé dans plusieurs projets de surveillance de l'antibiorésistance en Afrique. Autonome, rigoureux, doté d'un esprit d'équipe et d'une forte capacité pédagogique.
                     </p>
@@ -158,33 +471,35 @@
             </section>
 
             <!-- Professional Experience Section -->
-            <section id="experience">
+            <section id="experience" class="section fade-in">
                 <h2 class="section-title" id="experience-title">Expériences Professionnelles</h2>
-                <div class="space-y-6">
+                <div class="education-grid">
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="job1-title">Bioinformaticien - IRESSEF - Plateforme Génomique</h3>
-                        <p class="text-sm text-gray-500" id="job1-date">Mars 2024 - Aoute 2025</p>
-                        <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1" id="job1-tasks">
+                        <h3 class="font-semibold text-lg text-blue-700 mb-1" id="job1-title">Bioinformaticien - IRESSEF - Plateforme Génomique</h3>
+                        <p class="text-sm text-gray-500 mb-3" id="job1-date">Mars 2024 - Août 2025</p>
+                        <ul class="job-tasks" id="job1-tasks">
                             <li>Caractérisation moléculaire et génétique de souches d'agents biologiques.</li>
                             <li>Identification de gènes de virulence, de résistance et de plasmides.</li>
                             <li>Séquençage et analyse de Mycobacterium tuberculosis (projet avec la Polynésie française et le PNT Sénégal).</li>
                             <li>Analyse du génome des virus SARS-CoV-2 (échantillons post-Hadj).</li>
                             <li>Étude métagénomique du microbiote intestinal chez des patients hypertendus et des témoins.</li>
+                            <li>Séquençage de données NGS d'épidémie de DENGUE et de CHIKUNGUNYA.</li>
                         </ul>
                     </div>
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="job2-title">Bioinformaticien - Laboratoire de Génétique Humaine - UCAD</h3>
-                        <p class="text-sm text-gray-500" id="job2-date">Février 2024</p>
-                        <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1" id="job2-tasks">
+                        <h3 class="font-semibold text-lg text-blue-700 mb-1" id="job2-title">Bioinformaticien - Laboratoire de Génétique Humaine - UCAD</h3>
+                        <p class="text-sm text-gray-500 mb-3" id="job2-date">Février 2024</p>
+                        <ul class="job-tasks" id="job2-tasks">
                             <li>Étude génétique de l'adermatoglyphie chez l'Homme.</li>
                             <li>Séquençage du génome humain, annotation et interprétation des variants associés aux empreintes digitales.</li>
                         </ul>
                     </div>
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="job3-title">Bioinformaticien - Institut Pasteur de Dakar (IPD)</h3>
-                        <p class="text-sm text-gray-500" id="job3-date">Août 2022 - Mai 2023</p>
-                        <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1" id="job3-tasks">
+                        <h3 class="font-semibold text-lg text-blue-700 mb-1" id="job3-title">Bioinformaticien - Institut Pasteur de Dakar (IPD)</h3>
+                        <p class="text-sm text-gray-500 mb-3" id="job3-date">Août 2022 - Mai 2023</p>
+                        <ul class="job-tasks" id="job3-tasks">
                             <li>Surveillance de l'antibiorésistance en Afrique (S. enterica, E. coli, K. pneumoniae).</li>
+                            <li>Étude comparative des <em>Salmonella enterica</em> responsables d'épidémies dans différents sites.</li>
                             <li>Projet de recherche - Mémoire de Master 2: Développement de pipeline bioinformatique pour la résistance aux antimicrobiens chez des entérobactéries.</li>
                         </ul>
                     </div>
@@ -192,77 +507,93 @@
             </section>
 
             <!-- Publications Section -->
-            <section id="publications">
+            <section id="publications" class="section fade-in">
                 <h2 class="section-title" id="publications-title">Publications</h2>
-                <div class="card p-6">
-                    <p id="publication1">
-                        Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the Mycobacterium tuberculosis Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:underline">https://journals.stmjournals.com/rtid/article=2025/view=213940/</a>
+                <div class="card">
+                    <p id="publication1" class="publication-link">
+                        Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the Mycobacterium tuberculosis Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:text-blue-700 underline">https://journals.stmjournals.com/rtid/article=2025/view=213940/</a>
                     </p>
                 </div>
             </section>
 
             <!-- Technical Skills Section -->
-            <section id="skills">
+            <section id="skills" class="section fade-in">
                 <h2 class="section-title" id="skills-title">Compétences Techniques</h2>
                 <div class="card">
-                    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <li class="p-4 bg-gray-50 rounded-lg"><span class="font-semibold" id="skills-os">Systèmes et outils:</span> Linux/Ubuntu, Bash, Git, Galaxy, Conda</li>
-                        <li class="p-4 bg-gray-50 rounded-lg"><span class="font-semibold" id="skills-lang">Langages de programmation:</span> Python, R</li>
-                        <li class="p-4 bg-gray-50 rounded-lg"><span class="font-semibold" id="skills-ngs">NGS et omiques:</span> Analyse de données de séquençage (DNA, RNA), métagénomique, transcriptomique</li>
-                        <li class="p-4 bg-gray-50 rounded-lg"><span class="font-semibold" id="skills-applied">Bioinformatique appliquée:</span> Identification de gènes, annotation, alignement, phylogénie</li>
-                        <li class="p-4 bg-gray-50 rounded-lg"><span class="font-semibold" id="skills-ai">IA et Data Science:</span> Machine Learning, Deep Learning, traitement d'images et données statistiques</li>
-                    </ul>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="font-semibold text-blue-700" id="skills-os">Systèmes et outils:</span>
+                            <span class="block mt-1 text-sm text-gray-600">Linux/Ubuntu, Bash, Git, Galaxy, Conda</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="font-semibold text-blue-700" id="skills-lang">Langages de programmation:</span>
+                            <span class="block mt-1 text-sm text-gray-600">Python, R</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="font-semibold text-blue-700" id="skills-ngs">NGS et omiques:</span>
+                            <span class="block mt-1 text-sm text-gray-600">Analyse de données de séquençage (DNA, RNA), métagénomique, transcriptomique</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="font-semibold text-blue-700" id="skills-applied">Bioinformatique appliquée:</span>
+                            <span class="block mt-1 text-sm text-gray-600">Identification de gènes, annotation, alignement, phylogénie</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="font-semibold text-blue-700" id="skills-ai">IA et Data Science:</span>
+                            <span class="block mt-1 text-sm text-gray-600">Machine Learning, Deep Learning, traitement d'images et données statistiques</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Academic Background Section -->
-            <section id="education">
+            <section id="education" class="section fade-in">
                 <h2 class="section-title" id="education-title">Formations Académiques</h2>
-                <div class="space-y-4">
+                <div class="education-grid">
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="edu1-degree">Master 2 en Bioinformatique-Biomathématique</h3>
-                        <p class="text-sm text-gray-500" id="edu1-univ">UCAD, Dakar - Sept. 2020 - Juin 2022</p>
+                        <h3 class="font-semibold text-lg text-blue-700" id="edu1-degree">Master 2 en Bioinformatique-Biomathématique</h3>
+                        <p class="text-sm text-gray-500 mt-1" id="edu1-univ">UCAD, Dakar - Sept. 2020 - Juin 2022</p>
                     </div>
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="edu2-degree">Master 1 en Bioinformatique-Biomathématique</h3>
-                        <p class="text-sm text-gray-500" id="edu2-univ">UCAD, Dakar - Nov. 2018 - Août 2019</p>
+                        <h3 class="font-semibold text-lg text-blue-700" id="edu2-degree">Master 1 en Bioinformatique-Biomathématique</h3>
+                        <p class="text-sm text-gray-500 mt-1" id="edu2-univ">UCAD, Dakar - Nov. 2018 - Août 2019</p>
                     </div>
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="edu3-degree">Licence 3 en Bioinformatique-Biomathématique</h3>
-                        <p class="text-sm text-gray-500" id="edu3-univ">UCAD, Dakar - Sept. 2017 - Juin 2018</p>
+                        <h3 class="font-semibold text-lg text-blue-700" id="edu3-degree">Licence 3 en Bioinformatique-Biomathématique</h3>
+                        <p class="text-sm text-gray-500 mt-1" id="edu3-univ">UCAD, Dakar - Sept. 2017 - Juin 2018</p>
                     </div>
                 </div>
             </section>
             
             <!-- Certifications Section -->
-            <section id="certifications">
+            <section id="certifications" class="section fade-in">
                 <h2 class="section-title" id="certifications-title">Certifications</h2>
-                <div class="space-y-4">
+                <div class="education-grid">
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="cert1-title">Multi-Omique: Génomique, Transcriptomique et Métagénomique</h3>
-                        <p class="text-sm text-gray-500" id="cert1-org">OmicsLogic (2024)</p>
+                        <h3 class="font-semibold text-lg text-blue-700" id="cert1-title">Multi-Omique: Génomique, Transcriptomique et Métagénomique</h3>
+                        <p class="text-sm text-gray-500 mt-1" id="cert1-org">OmicsLogic (2024)</p>
                     </div>
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="cert4-title">Certificat d'instructeur</h3>
-                        <p class="text-sm text-gray-500" id="cert4-org">Diplôme Universitaire en biologie des maladies émergentes et ré-émergentes (DUBMER, 2024)</p>
+                        <h3 class="font-semibold text-lg text-blue-700" id="cert4-title">Certificat d'instructeur</h3>
+                        <p class="text-sm text-gray-500 mt-1" id="cert4-org">Diplôme Universitaire en biologie des maladies émergentes et ré-émergentes (DUBMER, 2024)</p>
                     </div>
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="cert2-title">Next Generation Sequencing Bioinformatics</h3>
-                        <p class="text-sm text-gray-500" id="cert2-org">H3ABioNet (2022)</p>
+                        <h3 class="font-semibold text-lg text-blue-700" id="cert2-title">Next Generation Sequencing Bioinformatics</h3>
+                        <p class="text-sm text-gray-500 mt-1" id="cert2-org">H3ABioNet (2022)</p>
                     </div>
                     <div class="card">
-                        <h3 class="font-semibold text-lg" id="cert3-title">Intelligence Artificielle avec Python, R et MATLAB</h3>
-                        <p class="text-sm text-gray-500" id="cert3-org">École des Hautes Études en Sciences de l'Information et de la Communication (2022)</p>
+                        <h3 class="font-semibold text-lg text-blue-700" id="cert3-title">Intelligence Artificielle avec Python, R et MATLAB</h3>
+                        <p class="text-sm text-gray-500 mt-1" id="cert3-org">École des Hautes Études en Sciences de l'Information et de la Communication (2022)</p>
                     </div>
-
                 </div>
             </section>
         </main>
     </div>
 
     <script>
+        // Content data for both languages
         const content = {
             fr: {
+                title: "Mamadou Ndao - Bioinformaticien",
                 nav: {
                     profile: "Profil",
                     experience: "Expériences",
@@ -274,19 +605,20 @@
                 profile: {
                     headline: "Bioinformaticien / Bioinformatics Scientist",
                     title: "Profil Professionnel",
-                    text: "Bioinformaticien diplômé d'un Master en Bioinformatique-Biomathématique de l'Université Cheikh Anta Diop (UCAD), avec une solide expérience dans l'analyse génomique d'agents pathogènes humains et le traitement de données omiques (génomique, transcriptomique, métagénomique). Formé aux outils avancés de séquençage et d'analyse bioinformatique, je me spécialise dans l'identification de gènes de résistance, de virulence et de plasmides. Passionné par l'étude des bactéries multirésistantes, je suis engagé dans plusieurs projets de surveillance de l'antibiorésistance en Afrique. Autonome, rigoureux, doté d'un esprit d'équipe et d'une forte capacité pédagogique.",
+                    text: "Bioinformaticien diplômé d'un Master en Bioinformatique-Biomathématique de l'Université Cheikh Anta Diop (UCAD), avec une solide expérience dans l'analyse génomique d'agents pathogènes humains et le traitement de données omiques (génomique, transcriptomique, métagénomique). Formé aux outils avancés de séquençage et d'analyse bioinformatique, je me spécialise dans l'identification de gènes de résistance, de virulence et de plasmides. Passionné par l'étude des bactéries multirésistantes, je suis engagé dans plusieurs projets de surveillance de l'antibiorésistance en Afrique. Autonome, rigoureux, doté d'un esprit d'équipe et d'une forte capacité pédagogique."
                 },
                 experience: {
                     title: "Expériences Professionnelles",
                     job1: {
                         title: "Bioinformaticien - IRESSEF - Plateforme Génomique",
-                        date: "Mars 2024 - Aoute 2025",
+                        date: "Mars 2024 - Août 2025",
                         tasks: [
                             "Caractérisation moléculaire et génétique de souches d'agents biologiques.",
                             "Identification de gènes de virulence, de résistance et de plasmides.",
-                            "Séquençage et analyse de Mycobacterium tuberculosis (projet avec la Polynésie française et le PNT Sénégal).",
+                            "Séquençage et analyse de <em>Mycobacterium tuberculosis</em> (projet avec la Polynésie française et le PNT Sénégal).",
                             "Analyse du génome des virus SARS-CoV-2 (échantillons post-Hadj).",
-                            "Étude métagénomique du microbiote intestinal chez des patients hypertendus et des témoins."
+                            "Étude métagénomique du microbiote intestinal chez des patients hypertendus et des témoins.",
+                            "Séquençage de données NGS d'épidémie de virus de la <em>Dengue</em> et de <em>Chikungunya</em>."
                         ]
                     },
                     job2: {
@@ -301,14 +633,15 @@
                         title: "Bioinformaticien - Institut Pasteur de Dakar (IPD)",
                         date: "Août 2022 - Mai 2023",
                         tasks: [
-                            "Surveillance de l'antibiorésistance en Afrique (S. enterica, E. coli, K. pneumoniae).",
+                            "Surveillance de l'antibiorésistance en Afrique (<em>S. enterica, E. coli, K. pneumoniae</em>).",
+                            "Étude comparative des <em>Salmonella enterica</em> responsables d'épidémies dans différents sites.",
                             "Projet de recherche - Mémoire de Master 2: Développement de pipeline bioinformatique pour la résistance aux antimicrobiens chez des entérobactéries."
                         ]
                     }
                 },
                 publications: {
                     title: "Publications",
-                    publication1: 'Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the Mycobacterium tuberculosis Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:underline">https://journals.stmjournals.com/rtid/article=2025/view=213940/</a>'
+                    publication1: 'Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the Mycobacterium tuberculosis Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:text-blue-700 underline">https://journals.stmjournals.com/rtid/article=2025/view=213940/</a>'
                 },
                 skills: {
                     title: "Compétences Techniques",
@@ -322,17 +655,18 @@
                     title: "Formations Académiques",
                     edu1: { degree: "Master 2 en Bioinformatique-Biomathématique", univ: "UCAD, Dakar - Sept. 2020 - Juin 2022" },
                     edu2: { degree: "Master 1 en Bioinformatique-Biomathématique", univ: "UCAD, Dakar - Nov. 2018 - Août 2019" },
-                    edu3: { degree: "Licence 3 en Bioinformatique-Biomathématique", univ: "UCAD, Dakar - Sept. 2017 - Juin 2018" },
+                    edu3: { degree: "Licence 3 en Bioinformatique-Biomathématique", univ: "UCAD, Dakar - Sept. 2017 - Juin 2018" }
                 },
                 certifications: {
                     title: "Certifications",
                     cert1: { title: "Multi-Omique: Génomique, Transcriptomique et Métagénomique", org: "OmicsLogic (2024)" },
                     cert2: { title: "Next Generation Sequencing Bioinformatics", org: "H3ABioNet (2022)" },
-                    cert3: { title: "Intelligence Artificielle avec Python, R et MATLAB", org: "École des Hautes Études en Sciences de l'Information et de la Communication (2022)" },
-                    cert4: { title: "Certificat d'instructeur", org: "Diplôme Universitaire en biologie des maladies émergentes et ré-émergentes (DUBMER, 2024)" },
+                    cert3: { title: "Intelligence Artificielle avec Python, R et MATLAB", org: "Institut des Algorithmes du Sénégal (IAS) (2022)" },
+                    cert4: { title: "Certificat d'instructeur", org: "Diplôme Universitaire en biologie des maladies émergentes et ré-émergentes (DUBMER, 2024)" }
                 }
             },
             en: {
+                title: "Mamadou Ndao - Bioinformatics Scientist",
                 nav: {
                     profile: "Profile",
                     experience: "Experience",
@@ -344,19 +678,20 @@
                 profile: {
                     headline: "Bioinformatics Scientist / Bioinformaticien",
                     title: "Professional Profile",
-                    text: "Bioinformatics scientist with a Master's degree in Bioinformatics-Biomathematics from Cheikh Anta Diop University (UCAD), with solid experience in the genomic analysis of human pathogens and the processing of omics data (genomics, transcriptomics, metagenomics). Trained in advanced sequencing and bioinformatics analysis tools, I specialize in the identification of resistance genes, virulence factors, and plasmids. Passionate about the study of multidrug-resistant bacteria, I am involved in several projects monitoring antibiotic resistance in Africa. I am autonomous, rigorous, a team player, and have strong teaching skills.",
+                    text: "Bioinformatics scientist with a Master's degree in Bioinformatics-Biomathematics from Cheikh Anta Diop University (UCAD), with solid experience in the genomic analysis of human pathogens and the processing of omics data (genomics, transcriptomics, metagenomics). Trained in advanced sequencing and bioinformatics analysis tools, I specialize in the identification of resistance genes, virulence factors, and plasmids. Passionate about the study of multidrug-resistant bacteria, I am involved in several projects monitoring antibiotic resistance in Africa. I am autonomous, rigorous, a team player, and have strong teaching skills."
                 },
                 experience: {
                     title: "Professional Experience",
                     job1: {
                         title: "Bioinformatician - IRESSEF - Genomics Platform",
-                        date: "March 2024 - Present",
+                        date: "March 2024 - August 2025",
                         tasks: [
                             "Molecular and genetic characterization of strains of biological agents.",
                             "Identification of virulence genes, resistance genes, and plasmids.",
-                            "Sequencing and analysis of Mycobacterium tuberculosis (project with French Polynesia and the PNT Senegal).",
+                            "Sequencing and analysis of <em>Mycobacterium tuberculosis</em> (project with French Polynesia and the PNT Senegal).",
                             "Genome analysis of SARS-CoV-2 viruses (post-Hajj samples).",
-                            "Metagenomic study of the gut microbiota in hypertensive and control patients."
+                            "Metagenomic study of the gut microbiota in hypertensive and control patients.",
+                            "NGS data sequencing of <em>Dengue</em> and <em>Chikungunya</em> virus epidemic."
                         ]
                     },
                     job2: {
@@ -369,16 +704,17 @@
                     },
                     job3: {
                         title: "Bioinformatician - Pasteur Institute of Dakar (IPD)",
-                        date: "August 2022 - May 2025",
+                        date: "August 2022 - May 2023",
                         tasks: [
-                            "Monitoring of antibiotic resistance in Africa (S. enterica, E. coli, K. pneumoniae).",
+                            "Monitoring of antibiotic resistance in Africa (<em>S. enterica, E. coli, K. pneumoniae</em>).",
+                            "Comparative study of <em>Salmonella enterica</em> responsible for epidemics at different sites.",
                             "Research project - Master 2 Thesis: Development of a bioinformatics pipeline for antimicrobial resistance in enterobacteria."
                         ]
                     }
                 },
                 publications: {
                     title: "Publications",
-                    publication1: 'Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the Mycobacterium tuberculosis Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:underline">https://journals.stmjournals.com/rtid/article=2025/view=213940/</a>'
+                    publication1: 'Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the Mycobacterium tuberculosis Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:text-blue-700 underline">https://journals.stmjournals.com/rtid/article=2025/view=213940/</a>'
                 },
                 skills: {
                     title: "Technical Skills",
@@ -392,27 +728,42 @@
                     title: "Academic Background",
                     edu1: { degree: "Master 2 in Bioinformatics-Biomathematics", univ: "UCAD, Dakar - Sept. 2020 - June 2022" },
                     edu2: { degree: "Master 1 in Bioinformatics-Biomathematics", univ: "UCAD, Dakar - Nov. 2018 - August 2019" },
-                    edu3: { degree: "Licence 3 in Bioinformatics-Biomathematics", univ: "UCAD, Dakar - Sept. 2017 - June 2018" },
+                    edu3: { degree: "Licence 3 in Bioinformatics-Biomathematics", univ: "UCAD, Dakar - Sept. 2017 - June 2018" }
                 },
                 certifications: {
                     title: "Certifications",
                     cert1: { title: "Multi-Omics: Genomics, Transcriptomics, and Metagenomics", org: "OmicsLogic (2024)" },
                     cert2: { title: "Next Generation Sequencing Bioinformatics", org: "H3ABioNet (2022)" },
-                    cert3: { title: "Artificial Intelligence with Python, R, and MATLAB", org: "École des Hautes Études en Sciences de l'Information et de la Communication (2022)" },
-                    cert4: { title: "Instructor Certificate", org: "University Diploma in the biology of emerging and re-emerging diseases (DUBMER, 2024)" },
+                    cert3: { title: "Artificial Intelligence with Python, R, and MATLAB", org: "Senegal Algorithms Institute (IAS) (2022)" },
+                    cert4: { title: "Instructor Certificate", org: "University Diploma in the biology of emerging and re-emerging diseases (DUBMER, 2024)" }
                 }
             }
         };
 
+        // DOM elements
         const langBtnFr = document.getElementById('lang-fr');
         const langBtnEn = document.getElementById('lang-en');
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navbarList = document.getElementById('navbar-list');
         const root = document.documentElement;
 
-        function updateContent(lang) {
-            const data = content[lang];
-            root.lang = lang;
-            document.title = lang === 'fr' ? 'Mamadou Ndao - Bioinformaticien' : 'Mamadou Ndao - Bioinformatics Scientist';
+        // Current language state
+        let currentLang = 'fr';
 
+        // Language switching functionality
+        function updateContent(lang) {
+            currentLang = lang;
+            const data = content[lang];
+            
+            // Update document language and title
+            root.lang = lang;
+            document.title = data.title;
+
+            // Update active language button
+            langBtnFr.classList.toggle('active', lang === 'fr');
+            langBtnEn.classList.toggle('active', lang === 'en');
+
+            // Update navigation
             document.getElementById('nav-profile').textContent = data.nav.profile;
             document.getElementById('nav-experience').textContent = data.nav.experience;
             document.getElementById('nav-publications').textContent = data.nav.publications;
@@ -420,10 +771,12 @@
             document.getElementById('nav-education').textContent = data.nav.education;
             document.getElementById('nav-certifications').textContent = data.nav.certifications;
 
+            // Update profile section
             document.getElementById('profile-headline').textContent = data.profile.headline;
             document.getElementById('profile-title').textContent = data.profile.title;
             document.getElementById('profile-text').textContent = data.profile.text;
 
+            // Update experience section
             document.getElementById('experience-title').textContent = data.experience.title;
             
             document.getElementById('job1-title').textContent = data.experience.job1.title;
@@ -441,9 +794,11 @@
             const job3TasksList = document.getElementById('job3-tasks');
             job3TasksList.innerHTML = data.experience.job3.tasks.map(task => `<li>${task}</li>`).join('');
 
+            // Update publications section
             document.getElementById('publications-title').textContent = data.publications.title;
             document.getElementById('publication1').innerHTML = data.publications.publication1;
 
+            // Update skills section
             document.getElementById('skills-title').textContent = data.skills.title;
             document.getElementById('skills-os').textContent = data.skills.os;
             document.getElementById('skills-lang').textContent = data.skills.lang;
@@ -451,6 +806,7 @@
             document.getElementById('skills-applied').textContent = data.skills.applied;
             document.getElementById('skills-ai').textContent = data.skills.ai;
 
+            // Update education section
             document.getElementById('education-title').textContent = data.education.title;
             document.getElementById('edu1-degree').textContent = data.education.edu1.degree;
             document.getElementById('edu1-univ').textContent = data.education.edu1.univ;
@@ -459,6 +815,7 @@
             document.getElementById('edu3-degree').textContent = data.education.edu3.degree;
             document.getElementById('edu3-univ').textContent = data.education.edu3.univ;
 
+            // Update certifications section
             document.getElementById('certifications-title').textContent = data.certifications.title;
             document.getElementById('cert1-title').textContent = data.certifications.cert1.title;
             document.getElementById('cert1-org').textContent = data.certifications.cert1.org;
@@ -470,12 +827,97 @@
             document.getElementById('cert4-org').textContent = data.certifications.cert4.org;
         }
 
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            navbarList.classList.toggle('mobile-open');
+        }
+
+        // Close mobile menu when clicking on a link
+        function closeMobileMenu() {
+            navbarList.classList.remove('mobile-open');
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(targetId) {
+            const target = document.getElementById(targetId);
+            if (target) {
+                const offset = 100; // Account for fixed navbar
+                const targetPosition = target.offsetTop - offset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Fade-in animation on scroll
+        function observeElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Event listeners
         langBtnFr.addEventListener('click', () => updateContent('fr'));
         langBtnEn.addEventListener('click', () => updateContent('en'));
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
 
-        // Initial content load
-        updateContent('fr');
+        // Add click handlers for navigation links
+        document.querySelectorAll('.navbar-item a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                closeMobileMenu();
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar') && navbarList.classList.contains('mobile-open')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 767) {
+                navbarList.classList.remove('mobile-open');
+            }
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            updateContent('fr');
+            observeElements();
+            
+            // Add a small delay to trigger fade-in animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 100);
+                });
+            }, 200);
+        });
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navbarList.classList.contains('mobile-open')) {
+                closeMobileMenu();
+            }
+        });
     </script>
-
 </body>
 </html>
