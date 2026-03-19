@@ -51,6 +51,7 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
             opacity: 0.1;
+            pointer-events: none;
         }
         
         @media (min-width: 768px) {
@@ -443,18 +444,33 @@
                     </svg>
                     <span>ndaom403@gmail.com</span>
                 </a>
-                <a href="https://linkedin.com/in/mamadou-ndao-6869741b1" target="_blank" class="contact-item">
+                <a href="https://linkedin.com/in/mamadou-ndao-6869741b1" rel="noopener noreferrer" target="_blank" class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.768s.784-1.767 1.75-1.767 1.75.79 1.75 1.767-.783 1.768-1.75 1.768zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
                     <span>LinkedIn</span>
                 </a>
+                <a href="https://github.com/bioinfosif" rel="noopener noreferrer" target="_blank" class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 008 10.94c.6.11.82-.26.82-.58v-2.02c-3.25.71-3.94-1.57-3.94-1.57-.55-1.4-1.34-1.77-1.34-1.77-1.1-.76.08-.75.08-.75 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.79.42-1.32.76-1.62-2.6-.3-5.34-1.3-5.34-5.79 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.2a11.4 11.4 0 016 0c2.3-1.52 3.3-1.2 3.3-1.2.65 1.66.24 2.88.12 3.18.76.82 1.22 1.87 1.22 3.15 0 4.5-2.75 5.48-5.37 5.77.43.37.81 1.1.81 2.22v3.3c0 .32.22.7.83.58A11.5 11.5 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+
+
+
                 <span class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 100-4 0 2z" clip-rule="evenodd" />
                     </svg>
                     <span>Sénégal</span>
                 </span>
+            </div>
+            <div class="mt-4">
+                <a href="cv_mamadou_ndao.pdf" download 
+                    class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow transition">
+                        📄 Télécharger mon CV
+                </a>
             </div>
         </header>
 
@@ -478,12 +494,21 @@
                         <h3 class="font-semibold text-lg text-blue-700 mb-1" id="job1-title">Bioinformaticien - IRESSEF - Plateforme Génomique</h3>
                         <p class="text-sm text-gray-500 mb-3" id="job1-date">Mars 2024 - Août 2025</p>
                         <ul class="job-tasks" id="job1-tasks">
-                            <li>Caractérisation moléculaire et génétique de souches d'agents biologiques.</li>
-                            <li>Identification de gènes de virulence, de résistance et de plasmides.</li>
-                            <li>Séquençage et analyse de Mycobacterium tuberculosis (projet avec la Polynésie française et le PNT Sénégal).</li>
-                            <li>Analyse du génome des virus SARS-CoV-2 (échantillons post-Hadj).</li>
-                            <li>Étude métagénomique du microbiote intestinal chez des patients hypertendus et des témoins.</li>
-                            <li>Séquençage de données NGS d'épidémie de DENGUE et de CHIKUNGUNYA.</li>
+                            <li>Réalisation d’analyses génomiques de bactéries d’origine alimentaire, incluant <em>Bacillus anthracis</em> et <em>Staphylococcus aureus</em>, avec identification des gènes de virulence (notamment cytotoxines), des déterminants de résistance aux antimicrobiens (AMR) et des plasmides, ainsi que des analyses phylogénétiques pour étudier leur diversité et leur potentiel pathogène.</li>
+
+                            <li>Analyse génomique de souches de <em>Mycobacterium tuberculosis</em> dans le cadre d’une collaboration internationale (Polynésie française et Programme National de Lutte contre la Tuberculose – Sénégal), incluant l’identification des espèces, la détermination des lignées, le profil de résistance aux antituberculeux et la reconstruction phylogénétique.</li>
+
+                            <li>Conduite d’analyses métagénomiques dans une étude comparative du microbiote intestinal entre patients hypertendus et individus témoins, incluant la classification taxonomique, l’analyse de la diversité microbienne (alpha/bêta) et l’interprétation statistique des résultats.</li>
+
+                            <li>Investigation métagénomique d’une épidémie nosocomiale en service de néonatologie (5 décès), avec identification du pathogène responsable à partir d’échantillons environnementaux (couveuses) via des approches de séquençage haut débit et d’analyse bioinformatique.</li>
+
+                            <li>Contribution à un projet national de premier séquençage génomique de <em>Mycobacterium tuberculosis</em> au Sénégal (IRESSEF & PNT), incluant l’identification des espèces, la caractérisation des lignées et l’analyse de la résistance aux antituberculeux pour la surveillance épidémiologique.</li>
+
+                            <li>Identification du premier cas d’infection à <em>Mycobacterium syngnathidarum</em> au Sénégal et du deuxième cas rapporté au niveau mondial, contribuant à l’amélioration des connaissances sur cette espèce rare.</li>
+
+                            <li>Participation à l’identification et à la caractérisation d’une nouvelle espèce du genre <em>Psychrobacter</em> (travaux en cours de publication), incluant des analyses génomiques comparatives et taxonomiques.</li>
+
+                            <li>Analyse génomique de virus et arbovirus (<em>Chikungunya virus</em>, <em>Dengue virus</em>, <em>SARS-CoV-2</em>) via des approches de Whole Genome Sequencing (WGS) et de métagénomique, pour la surveillance épidémiologique et la caractérisation des variants.</li>
                         </ul>
                     </div>
                     <div class="card">
@@ -613,12 +638,14 @@
                         title: "Bioinformaticien - IRESSEF - Plateforme Génomique",
                         date: "Mars 2024 - Août 2025",
                         tasks: [
-                            "Caractérisation moléculaire et génétique de souches d'agents biologiques.",
-                            "Identification de gènes de virulence, de résistance et de plasmides.",
-                            "Séquençage et analyse de <em>Mycobacterium tuberculosis</em> (projet avec la Polynésie française et le PNT Sénégal).",
-                            "Analyse du génome des virus SARS-CoV-2 (échantillons post-Hadj).",
-                            "Étude métagénomique du microbiote intestinal chez des patients hypertendus et des témoins.",
-                            "Séquençage de données NGS d'épidémie de virus de la <em>Dengue</em> et de <em>Chikungunya</em>."
+                            "Réalisation d’analyses génomiques de bactéries d’origine alimentaire, incluant <em>Bacillus anthracis</em> et <em>Staphylococcus aureus</em>, avec identification des gènes de virulence (notamment cytotoxines), des déterminants de résistance aux antimicrobiens (AMR) et des plasmides, ainsi que des analyses phylogénétiques pour étudier leur diversité et leur potentiel pathogène.",
+                            "Analyse génomique de souches de <em>Mycobacterium tuberculosis</em> dans le cadre d’une collaboration internationale (Polynésie française et Programme National de Lutte contre la Tuberculose – Sénégal), incluant l’identification des espèces, la détermination des lignées, le profil de résistance aux antituberculeux et la reconstruction phylogénétique.",
+                            "Conduite d’analyses métagénomiques dans une étude comparative du microbiote intestinal entre patients hypertendus et individus témoins, incluant la classification taxonomique, l’analyse de la diversité microbienne (alpha/bêta) et l’interprétation statistique des résultats.",
+                            "Investigation métagénomique d’une épidémie nosocomiale en service de néonatologie (5 décès), avec identification du pathogène responsable à partir d’échantillons environnementaux (couveuses) via des approches de séquençage haut débit et d’analyse bioinformatique.",
+                            "Contribution à un projet national de premier séquençage génomique de <em>Mycobacterium tuberculosis</em> au Sénégal (IRESSEF & PNT), incluant l’identification des espèces, la caractérisation des lignées et l’analyse de la résistance aux antituberculeux pour la surveillance épidémiologique.",
+                            "Identification du premier cas d’infection à <em>Mycobacterium syngnathidarum</em> au Sénégal et du deuxième cas rapporté au niveau mondial, contribuant à l’amélioration des connaissances sur cette espèce rare.",
+                            "Participation à l’identification et à la caractérisation d’une nouvelle espèce du genre <em>Psychrobacter</em> (travaux en cours de publication), incluant des analyses génomiques comparatives et taxonomiques.",
+                            "Analyse génomique de virus et arbovirus (<em>Chikungunya, Dengue, SARS-CoV-2</em>) via des approches de Whole Genome Sequencing (WGS) et de métagénomique, pour la surveillance épidémiologique et la caractérisation des variants."
                         ]
                     },
                     job2: {
@@ -626,22 +653,25 @@
                         date: "Février 2024",
                         tasks: [
                             "Étude génétique de l'adermatoglyphie chez l'Homme.",
-                            "Séquençage du génome humain, annotation et interprétation des variants associés aux empreintes digitales."
+                            "Réalisation du séquençage du génome humain (WGS), incluant l’annotation et l’interprétation fonctionnelle des variants génétiques associés aux traits dermatoglyphiques (formation des empreintes digitales)."
                         ]
                     },
                     job3: {
                         title: "Bioinformaticien - Institut Pasteur de Dakar (IPD)",
                         date: "Août 2022 - Mai 2023",
                         tasks: [
-                            "Surveillance de l'antibiorésistance en Afrique (<em>S. enterica, E. coli, K. pneumoniae</em>).",
-                            "Étude comparative des <em>Salmonella enterica</em> responsables d'épidémies dans différents sites.",
-                            "Projet de recherche - Mémoire de Master 2: Développement de pipeline bioinformatique pour la résistance aux antimicrobiens chez des entérobactéries."
+                            "Contribution au projet Surveillance de l’Antibiorésistance en Afrique (SARA), avec analyse génomique de bactéries d’intérêt clinique (<em>Salmonella enterica, Escherichia coli, Klebsiella pneumoniae</em>), incluant l’identification des espèces, la détection des déterminants de résistance aux antimicrobiens (AMR) et des facteurs de virulence.",
+                            "Analyse comparative de souches de <em>Salmonella enterica</em> isolées lors de différentes épidémies (Yeumbeul, Kayar), basée sur des approches de phylogénie et de pangénomique afin d’évaluer leur relation génétique et caractériser leur diversité génomique au fil du temps.",
+                            "Projet de recherche – Mémoire de Master 2 : développement d’un pipeline bioinformatique pour l’analyse de la résistance aux antimicrobiens chez des entérobactéries.",
+                            "Conception et implémentation d’un workflow bioinformatique intégrant les différentes étapes d’analyse (contrôle qualité, identification, détection des gènes de résistance).",
+                            "Amélioration et mise à jour du pipeline après le projet initial, avec mise à disposition en open source sur GitHub : <a href='https://github.com/bioinfosif/PMIC-pipeline' target='_blank' class='text-blue-500 hover:text-blue-700 underline'>PMIC-pipeline</a>."
                         ]
                     }
                 },
                 publications: {
                     title: "Publications",
-                    publication1: 'Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the Mycobacterium tuberculosis Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:text-blue-700 underline">https://journals.stmjournals.com/rtid/article=2025/view=213940/</a>'
+                    publication1: 'Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the <em>Mycobacterium tuberculosis</em> Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:text-blue-700 underline">Lien</a>',
+                    publication2: 'Badiane, J.K., Levy, M., Drancourt, M., Saad, J., Robinne, S., Ndao, M., Grine, G. <span class="ml-2 px-2 py-1 text-xs bg-yellow-100 text-yellow-800 rounded">(in preparation)</span>. Genomic diversity of Mycobacterium tuberculosis complex in Tahiti, French Polynesia.'
                 },
                 skills: {
                     title: "Compétences Techniques",
@@ -676,7 +706,7 @@
                     certifications: "Certifications"
                 },
                 profile: {
-                    headline: "Bioinformatics Scientist / Bioinformaticien",
+                    headline: "Bioinformatics Scientist / Bioinformatician",
                     title: "Professional Profile",
                     text: "Bioinformatics scientist with a Master's degree in Bioinformatics-Biomathematics from Cheikh Anta Diop University (UCAD), with solid experience in the genomic analysis of human pathogens and the processing of omics data (genomics, transcriptomics, metagenomics). Trained in advanced sequencing and bioinformatics analysis tools, I specialize in the identification of resistance genes, virulence factors, and plasmids. Passionate about the study of multidrug-resistant bacteria, I am involved in several projects monitoring antibiotic resistance in Africa. I am autonomous, rigorous, a team player, and have strong teaching skills."
                 },
@@ -686,12 +716,14 @@
                         title: "Bioinformatician - IRESSEF - Genomics Platform",
                         date: "March 2024 - August 2025",
                         tasks: [
-                            "Molecular and genetic characterization of strains of biological agents.",
-                            "Identification of virulence genes, resistance genes, and plasmids.",
-                            "Sequencing and analysis of <em>Mycobacterium tuberculosis</em> (project with French Polynesia and the PNT Senegal).",
-                            "Genome analysis of SARS-CoV-2 viruses (post-Hajj samples).",
-                            "Metagenomic study of the gut microbiota in hypertensive and control patients.",
-                            "NGS data sequencing of <em>Dengue</em> and <em>Chikungunya</em> virus epidemic."
+                            "Conducted genomic analyses of foodborne bacteria, including <em>Bacillus anthracis</em> and <em>Staphylococcus aureus</em>, with identification of virulence genes (notably cytotoxins), antimicrobial resistance determinants (AMR), and plasmids, as well as phylogenetic analyses to investigate their diversity and pathogenic potential.",
+                            "Performed genomic analysis of <em>Mycobacterium tuberculosis</em> strains as part of an international collaboration (French Polynesia and the National Tuberculosis Control Program – Senegal), including species identification, lineage classification, drug resistance profiling, and phylogenetic reconstruction.",
+                            "Conducted metagenomic analyses in a comparative study of gut microbiota between hypertensive patients and healthy controls, including taxonomic classification, microbial diversity analysis (alpha/beta diversity), and statistical interpretation.",
+                            "Performed metagenomic investigation of a nosocomial outbreak in a neonatal unit (5 deaths), identifying the causative pathogen from environmental samples (incubators) using high-throughput sequencing and bioinformatics approaches.",
+                            "Contributed to a national project on the first genomic sequencing of <em>Mycobacterium tuberculosis</em> in Senegal (IRESSEF & NTP), including species identification, lineage characterization, and antimicrobial resistance analysis for epidemiological surveillance.",
+                            "Identified the first case of <em>Mycobacterium syngnathidarum</em> infection in Senegal and the second reported case worldwide, contributing to the understanding of this rare species.",
+                            "Participated in the identification and characterization of a novel <em>Psychrobacter</em> species (under publication), including comparative genomic and taxonomic analyses.",
+                            "Conducted genomic analysis of viruses and arboviruses (<em>Chikungunya, Dengue, SARS-CoV-2</em>) using Whole Genome Sequencing (WGS) and metagenomics approaches for epidemiological surveillance and variant characterization."
                         ]
                     },
                     job2: {
@@ -699,22 +731,25 @@
                         date: "February 2024",
                         tasks: [
                             "Genetic study of adermatoglyphia in humans.",
-                            "Human genome sequencing, annotation, and interpretation of variants associated with fingerprints."
+                            "Conducted human whole-genome sequencing (WGS), including variant annotation and functional interpretation of genetic variants associated with dermatoglyphic traits (fingerprint formation)."
                         ]
                     },
                     job3: {
                         title: "Bioinformatician - Pasteur Institute of Dakar (IPD)",
                         date: "August 2022 - May 2023",
                         tasks: [
-                            "Monitoring of antibiotic resistance in Africa (<em>S. enterica, E. coli, K. pneumoniae</em>).",
-                            "Comparative study of <em>Salmonella enterica</em> responsible for epidemics at different sites.",
-                            "Research project - Master 2 Thesis: Development of a bioinformatics pipeline for antimicrobial resistance in enterobacteria."
+                            "Contributed to the Surveillance of Antimicrobial Resistance in Africa (SARA) project through genomic analysis of clinically relevant bacteria (<em>Salmonella enterica, Escherichia coli, Klebsiella pneumoniae</em>), including species identification, detection of antimicrobial resistance determinants (AMR), and virulence factors.",
+                            "Performed comparative genomic analysis of <em>Salmonella enterica</em> strains isolated from different outbreaks (Yeumbeul, Kayar), using phylogenetic and pangenomic approaches to assess genetic relatedness and characterize genomic diversity over time.",
+                            "Research project – Master’s thesis: development of a bioinformatics pipeline for antimicrobial resistance analysis in Enterobacteriaceae.",
+                            "Designed and implemented a bioinformatics workflow integrating multiple analysis steps, including quality control, species identification, resistance gene detection.",
+                            "Improved and maintained the pipeline after the initial project, with public release as an open-source tool on GitHub: <a href='https://github.com/bioinfosif/PMIC-pipeline' target='_blank' class='text-blue-500 hover:text-blue-700 underline'>PMIC-pipeline</a>."
                         ]
                     }
                 },
                 publications: {
                     title: "Publications",
-                    publication1: 'Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the Mycobacterium tuberculosis Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:text-blue-700 underline">https://journals.stmjournals.com/rtid/article=2025/view=213940/</a>'
+                    publication1: 'Padane, A., Ndiaye, S., Gueye, M., Ndao, M., Sarr, M., et al. (2025). First Insights into Whole Genome Sequencing of the <em>Mycobacterium tuberculosis</em> Complex: Molecular Diversity and Drug Susceptibility Patterns in Senegal. Recent Trends in Infectious Diseases, 2(1). <a href="https://journals.stmjournals.com/rtid/article=2025/view=213940/" target="_blank" class="text-blue-500 hover:text-blue-700 underline">Lien</a>',
+                    publication2: 'Badiane, J.K., Levy, M., Drancourt, M., Saad, J., Robinne, S., Ndao, M., Grine, G. <span class="ml-2 px-2 py-1 text-xs bg-yellow-100 text-yellow-800 rounded">(in preparation)</span>. Genomic diversity of Mycobacterium tuberculosis complex in Tahiti, French Polynesia.'
                 },
                 skills: {
                     title: "Technical Skills",
@@ -796,7 +831,12 @@
 
             // Update publications section
             document.getElementById('publications-title').textContent = data.publications.title;
-            document.getElementById('publication1').innerHTML = data.publications.publication1;
+            const pubContainer = document.getElementById('publication1').parentElement;
+
+            pubContainer.innerHTML = `
+                <p class="publication-link">${data.publications.publication1}</p>
+                <p class="publication-link mt-2">${data.publications.publication2}</p>
+            `;
 
             // Update skills section
             document.getElementById('skills-title').textContent = data.skills.title;
